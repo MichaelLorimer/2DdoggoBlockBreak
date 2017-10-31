@@ -7,15 +7,18 @@ public class Blocks : MonoBehaviour
 	//-----------------
 	// -- Block Data --
 	//
-
-	int numHit;   //Number of hits the block can take 
-	int pointVal; //how many points agiven block is worth
-
+	public int Score;     // current Score
+	public int pointVal = 1;  //how many points agiven block is worth
 
 
+	void Start()
+	{
+		Score = 0;
+	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		//Destroy the block
 		Destroy (gameObject);
+		Score += pointVal;
+
 	}
 }
