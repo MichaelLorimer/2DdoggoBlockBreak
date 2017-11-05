@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour 
 {
@@ -24,13 +25,18 @@ public class BoardManager : MonoBehaviour
 	public float xmin;
 	public float ymin;
 
+	//--- UI Elements --
+	public Text text;
 
 	// Use this for initialization
+
+	void Awake()
+	{
+		//Set Text reference 
+		CurrentScore = 0; 
+	}
 	void Start () 
 	{
-		
-		//s_Block = GameObject.FindGameObjectsWithTag ("Block");
-		CurrentScore = 0;
 		SpawnBlock ();
 	}
 	
@@ -38,6 +44,7 @@ public class BoardManager : MonoBehaviour
 	void Update () 
 	{
 		CurrentScore = Blocks.GetScore ();
+		text.text = "Score: " + CurrentScore;
 	}
 
 	//Function to spawn blocks 
@@ -54,5 +61,11 @@ public class BoardManager : MonoBehaviour
 			xmin = -95;
 			ymin -= 15.0f;
 		}
+	}
+
+	void UpdateText()
+	{
+		//Update Score// times?// Blocks Broken?
+
 	}
 }
