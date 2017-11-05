@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61560258487283310}
   m_Layer: 0
   m_Name: block_Russ
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d7fab797307a418f731821fb21354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  pointVal: 0
 --- !u!212 &212611740840060110
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -108,6 +108,70 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &189918667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 189918669}
+  - component: {fileID: 189918668}
+  - component: {fileID: 189918670}
+  m_Layer: 0
+  m_Name: BoardMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &189918668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189918667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213390f0ec8a3614dbe1bef2018be5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentScore: 0
+  lives: 1
+  bricks: 11
+  block:
+  - {fileID: 1100036245864934, guid: be8c4dd595576894da421ca00cecca28, type: 2}
+  - {fileID: 1388644899644366, guid: e63569a6ef827524e83338c6c130963f, type: 2}
+  - {fileID: 1810961553343164, guid: 26d8e5e15b1b06d4da95dc6557153bc6, type: 2}
+  - {fileID: 1963773385838724, guid: ededfc294c1f42e40a1d5d99489e7094, type: 2}
+  - {fileID: 1376245513400106, guid: dc152ee154163f54d84dcb388459c6b6, type: 2}
+  score: {fileID: 189918667}
+  xmin: -95
+  ymin: 100
+--- !u!4 &189918669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189918667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &189918670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189918667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8d7fab797307a418f731821fb21354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &504937032
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +222,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &504937035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -421,7 +485,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 898813647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

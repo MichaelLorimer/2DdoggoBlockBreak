@@ -6,7 +6,7 @@ public class BoardManager : MonoBehaviour
 {
 	//-- Score --
 	//
-	public int CurrentScore;
+	public int CurrentScore = 0;
 
 	//-- player Data --
 	public int lives = 1;
@@ -28,6 +28,8 @@ public class BoardManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		
+		//s_Block = GameObject.FindGameObjectsWithTag ("Block");
 		CurrentScore = 0;
 		SpawnBlock ();
 	}
@@ -35,7 +37,7 @@ public class BoardManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		CurrentScore += GameObject.Find ("Blocks").GetComponent<Blocks> ().Score;
+		CurrentScore = Blocks.GetScore ();
 	}
 
 	//Function to spawn blocks 
