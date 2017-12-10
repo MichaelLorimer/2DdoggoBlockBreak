@@ -6,11 +6,14 @@ public class Ballcontroller : MonoBehaviour
 {
 	//Movement speed
 	public float speed = 100.0f;
+	private Vector2 startVelocity;
+
 	// Use this for initialization
 	void Start () 
 	{
 		// Ball Movement
-		GetComponent<Rigidbody2D> ().velocity = Vector2.up * speed;
+		GetComponent<Rigidbody2D> ().velocity = Vector2.down * speed;
+		startVelocity = GetComponent<Rigidbody2D> ().velocity;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -28,6 +31,11 @@ public class Ballcontroller : MonoBehaviour
 		}
 	}
 
+	void Update()
+	{
+		ballReset ();
+	}
+
 	// Function to determine which direction the ball will bounch off the racket
 	float hitFactor(Vector2 ballPos, Vector2 racketPos, float racketWidth)
 	{
@@ -36,5 +44,14 @@ public class Ballcontroller : MonoBehaviour
 		// 1   -0.5   0   0.5   1
 		//=======================
 		return(ballPos.x - racketPos.x) /racketWidth;
+	}
+
+	void ballReset()
+	{
+		if (GetComponent<Rigidbody2D> ().position.y < -120) 
+		{
+			GetComponent<Rigidbody2D> ().position = new Vector3 (0.0f, 10.0f, 0.0f);
+			GetComponent<Rigidbody2D> ().velocity = startVelocity;
+		}
 	}
 }

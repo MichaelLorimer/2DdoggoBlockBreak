@@ -12,7 +12,8 @@ public class BoardManager : MonoBehaviour
 	//-- player Data --
 	public int lives = 1;
 
-
+	//Ball
+	public GameObject ball;
 
 	// -- block Data --
 	//
@@ -27,6 +28,10 @@ public class BoardManager : MonoBehaviour
 
 	//--- UI Elements --
 	public Text text;
+	public Text LifeText;
+
+	// Game Over
+	private bool GameOver = false;
 
 	// Use this for initialization
 
@@ -34,7 +39,9 @@ public class BoardManager : MonoBehaviour
 	{
 		//Set Text reference 
 		CurrentScore = 0; 
+		lives = 3;
 	}
+
 	void Start () 
 	{
 		SpawnBlock ();
@@ -43,8 +50,20 @@ public class BoardManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		CurrentScore = Blocks.GetScore ();
-		text.text = "Score: " + CurrentScore;
+		UpdateText ();
+
+		//Check if the Ball is below the board
+		if (ball.transform.localPosition.y < -120) 
+		{
+			lives--;
+		}
+
+		if (lives < 0) 
+		{
+			GameOver = true;	
+		}
+
+		CheckGameOver ();
 	}
 
 	//Function to spawn blocks 
@@ -65,7 +84,26 @@ public class BoardManager : MonoBehaviour
 
 	void UpdateText()
 	{
-		//Update Score// times?// Blocks Broken?
+		//Score Upate
+		CurrentScore = Blocks.GetScore ();
+		text.text = "Score: " + CurrentScore;
 
+		//Lives Update
+		LifeText.text = "Lives: " + lives;
+
+	}
+
+	void CheckGameOver()
+	{
+		if (GameOver) 
+		{
+			LifeText.text = "Game Over";
+			if (Input.GetKey ("r")) 
+			{
+				LifeText.text = "Restart";
+				lives = 3;
+				GameOver = false;
+			}
+		}
 	}
 }
